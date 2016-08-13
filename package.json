@@ -1,0 +1,51 @@
+{
+  "name": "ng2-translator",
+  "version": "1.0.0",
+  "dependencies": {
+    "@angular/core": "*",
+    "rxjs": "*",
+    "reflect-metadata": "^0.1.3",
+    "core-js": "^2.4.0",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "coveralls": "*",
+    "ghooks": "*",
+    "istanbul": "*",
+    "mocha": "^2.4.5",
+    "mocha-chai-helper": "*",
+    "nodemon": "*",
+    "npm-build-tools": "*",
+    "nsp": "*",
+    "semantic-release": "^4.3.5",
+    "ts-node": "^1.2.2",
+    "tslint": "*",
+    "typedoc": "^0.4.4",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "validate-commit-msg": "*"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint && npm run test && npm run document",
+      "commit-msg": "validate-commit-msg",
+      "post-commit": "npm run commit-documentation"
+    }
+  },
+  "scripts": {
+    "postinstall": "typings install",
+    "typings": "typings",
+    "prebuild": "n-clean lib/",
+    "build": "tsc",
+    "lint": "tslint src/*",
+    "test": "npm run test:unit && npm run test:security",
+    "test:unit": "mocha --check-leaks --compilers ts:ts-node/register --require core-js/es6 --require mocha-chai-helper --require reflect-metadata src/*.spec.ts",
+    "test:security": "nsp check",
+    "test:watch": "karma start karma.conf.js --auto-watch --browsers Chrome --no-single-run",
+    "document": "node_modules/.bin/typedoc.cmd src typings",
+    "dev": "npm run test:watch",
+    "commit-documentation": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\" || echo \"No changes committed\"",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "coveralls": "cat coverage/lcov/coverage.txt | coveralls"
+  }
+}
