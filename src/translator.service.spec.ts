@@ -43,6 +43,16 @@ describe("A translator service", () => {
       translator.guessLanguage();
       expect(translator.getLanguage()).to.equal("de");
     });
+
+    it("uses the user agent language if it is available", () => {
+      let navigator = {
+        language: "en-us"
+      };
+      translator = new Translator(navigator);
+      translator.setAvailableLanguages(["en", "de", "ar"]);
+      translator.guessLanguage();
+      expect(translator.getLanguage()).to.equal("en");
+    });
   });
 
   describe("when getting the current language", () => {
@@ -208,8 +218,8 @@ describe("A translator service", () => {
       let cb = sinon.spy();
       translator.subscribe("lang", cb);
       translator.setLanguage("de");
-      setImmediate(() => {
-        expect(cb.calledTwice).to.be.true;
+      setImmediate( () => {
+        expect(cb).to.be.calledTwice;
         expect(cb.getCall(0).args[0]).to.equal("English");
         expect(cb.getCall(1).args[0]).to.equal("Deutsch");
         done();
@@ -222,9 +232,31 @@ describe("A translator service", () => {
       translator.subscribe("lang", cb);
       translator.setLanguage("en");
       setImmediate(() => {
-        expect(cb.calledTwice).to.be.true;
+        expect(cb).to.be.calledTwice;
         expect(cb.getCall(0).args[0]).to.equal("Deutsch");
         expect(cb.getCall(1).args[0]).to.equal("English");
+        done();
+      });
+    });
+
+    it("sends translations to multiple recipients", (done) => {
+      let cb1 = sinon.spy();
+      let cb2 = sinon.spy();
+      translator.setLanguage("de");
+      translator.subscribe("lang", cb1);
+      translator.setLanguage("en");
+      translator.subscribe("lang", cb2);
+      translator.setLanguage("de");
+      setImmediate(() => {
+        expect(cb1).to.be.calledThrice;
+        expect(cb1.getCall(0).args[0]).to.equal("Deutsch");
+        expect(cb1.getCall(1).args[0]).to.equal("English");
+        expect(cb1.getCall(0).args[0]).to.equal("Deutsch");
+
+        expect(cb2).to.be.calledTwice;
+        expect(cb1.getCall(1).args[0]).to.equal("English");
+        expect(cb1.getCall(0).args[0]).to.equal("Deutsch");
+
         done();
       });
     });

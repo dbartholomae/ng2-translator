@@ -6,10 +6,11 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/concat';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 export type translation = { [key: string]: string };
 
-////@Injectable()
+@Injectable()
 ///**
 // * Allows to translate ids to texts in different languages. Consumers can subscribe to ids
 // * and get called whenever the language changes.
@@ -19,7 +20,7 @@ export class Translator {
   private availableLanguages: string[] = [];
   private currentLanguage: string;
   private translations: { [key: string]: translation } = {};
-  private translator: Subject<translation> = Subject.create();
+  private translationEmitter = new Subject<translation>();
 
   /**
    * Create a new translator.
@@ -86,7 +87,7 @@ export class Translator {
     this.throwIfNotAvailable(language);
     if (this.currentLanguage !== language) {
       this.currentLanguage = language;
-      this.translator.next(this.translations[language]);
+      this.translationEmitter.next(this.translations[language]);
     }
   }
 
@@ -137,7 +138,12 @@ export class Translator {
    * @return {Observable} an Observable that emits new translations
    */
   public observe(id: string): Observable<string> {
-    return Observable.concat(Observable.of(this.translate(id)), this.translator.map( (translation: translation) => { return translation[id]; }));
+    return Observable.concat(
+      Observable.of(this.translate(id)),
+      this.translationEmitter.map( (translation: translation) => {
+        return translation[id];
+      })
+    );
   }
 
   /**
