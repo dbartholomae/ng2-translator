@@ -1,5 +1,6 @@
 {
   "name": "ng2-translator",
+  "description": "A simple translation service and directive that manages multiple languages",
   "version": "1.0.0",
   "dependencies": {
     "@angular/core": "*",
