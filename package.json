@@ -10,6 +10,11 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "@angular/common": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
+    "@angular/platform-server-builds": "git://github.com/angular/platform-server-builds",
     "coveralls": "*",
     "ghooks": "*",
     "istanbul": "*",
@@ -40,8 +45,8 @@
     "build": "tsc",
     "lint": "tslint src/*",
     "test": "npm run test:unit && npm run test:security",
-    "test:unit": "mocha --check-leaks --compilers ts:ts-node/register --require core-js/es6 --require mocha-chai-helper --require reflect-metadata --require zone.js src/*.spec.ts --globals window",
-    "test:integration": "mocha --check-leaks --compilers ts:ts-node/register --require core-js/es6 --require mocha-chai-helper --require reflect-metadata --require zone.js src/*.int.ts",
+    "test:unit": "mocha --check-leaks --compilers ts:ts-node/register --require core-js/es6 --require mocha-chai-helper --require reflect-metadata --require zone.js --globals window src/*.spec.ts",
+    "test:integration": "mocha --compilers ts:ts-node/register --require core-js/es6 --require mocha-chai-helper --require reflect-metadata --require zone.js --require zone.js/dist/async-test.js src/*.int.ts",
     "test:security": "nsp check",
     "test:watch": "npm run test:unit -- --watch",
     "document": "node_modules/.bin/typedoc.cmd src typings",
