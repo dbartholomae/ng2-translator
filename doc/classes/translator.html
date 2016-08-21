@@ -90,7 +90,6 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="translator.html#availablelanguages" class="tsd-kind-icon">available<wbr>Languages</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="translator.html#currentlanguage" class="tsd-kind-icon">current<wbr>Language</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="translator.html#navigator" class="tsd-kind-icon">navigator</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="translator.html#translationemitter" class="tsd-kind-icon">translation<wbr>Emitter</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="translator.html#translations" class="tsd-kind-icon">translations</a></li>
 							</ul>
@@ -122,7 +121,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Translator<span class="tsd-signature-symbol">(</span>navigator<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="translator.html" class="tsd-signature-type">Translator</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Translator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="translator.html" class="tsd-signature-type">Translator</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -136,17 +135,6 @@
 									<p>Create a new translator.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> navigator: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The browsers navigator object</p>
-										</div>
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="translator.html" class="tsd-signature-type">Translator</a></h4>
 						</li>
 					</ul>
@@ -173,21 +161,6 @@
 							<li>Defined in translator.service.ts:21</li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="navigator" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagOptional">Optional</span> navigator</h3>
-					<div class="tsd-signature tsd-kind-icon">navigator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in translator.service.ts:29</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The browsers navigator object</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="translationemitter" class="tsd-anchor"></a>
@@ -230,7 +203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:100</li>
+									<li>Defined in translator.service.ts:103</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,7 +245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:192</li>
+									<li>Defined in translator.service.ts:195</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -301,7 +274,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:179</li>
+									<li>Defined in translator.service.ts:182</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:39</li>
+									<li>Defined in translator.service.ts:38</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -352,7 +325,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:59</li>
+									<li>Defined in translator.service.ts:58</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -379,12 +352,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:70</li>
+									<li>Defined in translator.service.ts:69</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Guess user language from user agent.</p>
+									<p>Guess user language from user agent if available, or use first available language otherwise</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
@@ -406,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:140</li>
+									<li>Defined in translator.service.ts:143</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,7 +408,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:47</li>
+									<li>Defined in translator.service.ts:46</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -466,7 +439,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:86</li>
+									<li>Defined in translator.service.ts:89</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -502,7 +475,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:114</li>
+									<li>Defined in translator.service.ts:117</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -544,7 +517,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:154</li>
+									<li>Defined in translator.service.ts:157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -595,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:167</li>
+									<li>Defined in translator.service.ts:170</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -628,7 +601,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in translator.service.ts:126</li>
+									<li>Defined in translator.service.ts:129</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -679,9 +652,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="translator.html#currentlanguage" class="tsd-kind-icon">current<wbr>Language</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="translator.html#navigator" class="tsd-kind-icon">navigator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="translator.html#translationemitter" class="tsd-kind-icon">translation<wbr>Emitter</a>

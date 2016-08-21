@@ -84,7 +84,7 @@
       &lt;button (click)="changeLang('de')"&gt;In German, please!&lt;/button&gt;
     `</span>,
   directives: [TranslatorComponent],
-  providers: [Translator, {provide: navigator, useValue: navigator}]
+  providers: [Translator, {provide: Navigator, useValue: <span class="hljs-built_in">window</span>.navigator}]
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent {
   <span class="hljs-keyword">constructor</span> (private translator: Translator){}
