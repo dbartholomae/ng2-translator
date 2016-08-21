@@ -20,7 +20,7 @@ import { Translator, TranslatorComponent } from 'ng2-translator';
       <button (click)="changeLang('de')">In German, please!</button>
     `,
   directives: [TranslatorComponent],
-  providers: [Translator, {provide: navigator, useValue: navigator}]
+  providers: [Translator]
 })
 export class AppComponent {
   constructor (private translator: Translator){}
