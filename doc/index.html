@@ -79,12 +79,25 @@
 
 @Component({
   selector: <span class="hljs-string">'app'</span>,
-  template: <span class="hljs-string">"&lt;h2&gt;&lt;wf-translate id="</span>HEADER<span class="hljs-string">"&gt;&lt;/wf-translate&gt;&lt;/h2&gt;"</span>,
+  template: <span class="hljs-string">`
+      &lt;h2&gt;&lt;wf-translate id="HEADER"&gt;&lt;/wf-translate&gt;&lt;/h2&gt;
+      &lt;button (click)="changeLang('de')"&gt;In German, please!&lt;/button&gt;
+    `</span>,
   directives: [TranslatorComponent],
-  providers: [Translator]
+  providers: [Translator, {provide: navigator, useValue: navigator}]
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent {
-  <span class="hljs-keyword">constructor</span> (translator: Translator){
+  <span class="hljs-keyword">constructor</span> (private translator: Translator){}
+
+  <span class="hljs-keyword">public</span> changeLang(lang: <span class="hljs-built_in">string</span>) {
+    <span class="hljs-keyword">this</span>.translator.setLanguage(<span class="hljs-string">"de"</span>);
+  }
+
+  <span class="hljs-keyword">private</span> initTranslator() {
+    <span class="hljs-keyword">this</span>.translator.setAvailableLanguages([<span class="hljs-string">"en"</span>, <span class="hljs-string">"de"</span>]);
+    <span class="hljs-keyword">this</span>.translator.setTranslation(<span class="hljs-string">"en"</span>, { HEADER: <span class="hljs-string">"Headline"</span> });
+    <span class="hljs-keyword">this</span>.translator.setTranslation(<span class="hljs-string">"de"</span>, { HEADER: <span class="hljs-string">"Überschrift"</span> });
+    <span class="hljs-keyword">this</span>.translator.guessLanguage();
   }
 }
 </code></pre>
@@ -93,7 +106,7 @@
 				<a href="https://npmcdn.com/ng2-translator">https://npmcdn.com/ng2-translator</a></p>
 				<p>No guarantees for uptime or anything like that, though.</p>
 				<h2 id="api">API</h2>
-				<p>The module can be required via browserify require.
+				<p>The module can be required as a CommonJS module.
 				For usage details, read the <a href="https://rawgit.com/dbartholomae/ng2-translator/master/doc/index.html">documentation</a>.</p>
 			</div>
 		</div>
