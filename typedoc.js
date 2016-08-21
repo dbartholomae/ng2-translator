@@ -1,5 +1,5 @@
 module.exports = {
-  out: "docs/",
+  out: "doc/",
   hideGenerator: true,
   name: "SIT Frontend",
   exclude: "**/*.+(e2e|spec).ts",
