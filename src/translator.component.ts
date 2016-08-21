@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Translator } from "./translator.service";
 
 @Component({
-  selector: 'wf-translate',
+  selector: 'wf-translator',
   template: '{{translation}}'
 })
 export class TranslatorComponent implements OnInit {
