@@ -25,10 +25,6 @@ describe("A translator service", () => {
     });
 
     it("uses the first availableLanguage if the navigator isn't available", () => {
-      let navigator = {
-        language: "fr"
-      };
-      translator = new Translator(navigator);
       translator.setAvailableLanguages(["en", "de", "ar"]);
       translator.guessLanguage();
       expect(translator.getLanguage()).to.equal("en");
@@ -38,20 +34,27 @@ describe("A translator service", () => {
       let navigator = {
         language: "de-de"
       };
-      translator = new Translator(navigator);
+      global['window'] = {
+        navigator: navigator
+      };
+      translator = new Translator();
       translator.setAvailableLanguages(["en", "de", "ar"]);
       translator.guessLanguage();
       expect(translator.getLanguage()).to.equal("de");
+      global['window'] = null;
     });
 
     it("uses the user agent language if it is available", () => {
       let navigator = {
         language: "en-us"
       };
-      translator = new Translator(navigator);
+      global['window'] = {
+        navigator: navigator
+      };
       translator.setAvailableLanguages(["en", "de", "ar"]);
       translator.guessLanguage();
       expect(translator.getLanguage()).to.equal("en");
+      global['window'] = null;
     });
   });
 

@@ -1,6 +1,6 @@
 ///<reference path="../typings/index.d.ts"/>
 
-import { Injectable, Optional } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/of';
@@ -24,9 +24,8 @@ export class Translator {
 
   /**
    * Create a new translator.
-   * @param navigator - The browsers navigator object
    */
-  constructor(@Optional() private navigator?: any) {}
+  constructor() {}
 
   /////////////////////
   // Public Methods //
@@ -64,7 +63,7 @@ export class Translator {
   }
 
   /**
-   * Guess user language from user agent.
+   * Guess user language from user agent if available, or use first available language otherwise
    * @throws If no language is available in translator
    */
   public guessLanguage() {
@@ -72,10 +71,14 @@ export class Translator {
       throw new Error("No languages available yet in translator, setAvailableLanguages first");
     }
     let userLang = "";
-    if (this.navigator != null) {
-      userLang = this.navigator.language.split('-')[0];
+    if (typeof window !== 'undefined' && window.navigator != null) {
+      userLang = window.navigator.language.split('-')[0];
     }
-    this.currentLanguage = /(de)/gi.test(userLang) ? userLang : this.availableLanguages[0];
+    if (this.availableLanguages.indexOf(userLang) >= 0) {
+      this.currentLanguage = userLang;
+    } else {
+      this.currentLanguage = this.availableLanguages[0];
+    }
   }
 
   /**
