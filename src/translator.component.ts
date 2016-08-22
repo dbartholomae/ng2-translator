@@ -8,6 +8,9 @@ import { Translator } from "./translator.service";
   template: '{{translation}}'
 })
 export class TranslatorComponent implements OnInit {
+  /**
+   * ID to use for translation.
+   */
   @Input() public id: string;
   public translation: string = "";
   constructor (private translator: Translator) {}
