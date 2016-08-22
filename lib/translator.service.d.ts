@@ -3,20 +3,19 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/concat';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 export declare type translation = {
     [key: string]: string;
 };
 export declare class Translator {
-    private navigator;
     private availableLanguages;
     private currentLanguage;
     private translations;
-    private translator;
+    private translationEmitter;
     /**
      * Create a new translator.
-     * @param navigator - The browsers navigator object
      */
-    constructor(navigator?: any);
+    constructor();
     /**
      * Get the available languages.
      * @returns {string[]}
@@ -34,7 +33,7 @@ export declare class Translator {
      */
     getLanguage(): string;
     /**
-     * Guess user language from user agent.
+     * Guess user language from user agent if available, or use first available language otherwise
      * @throws If no language is available in translator
      */
     guessLanguage(): void;
