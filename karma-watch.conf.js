@@ -2,6 +2,7 @@ module.exports = function(config) {
   return config.set({
     files: [
       {pattern: '../karma-test-shim.js', watched: false},
+      '**/*.spec.ts',
       '**/*.int.ts'
     ],
     basePath: 'src',
@@ -22,12 +23,17 @@ module.exports = function(config) {
       }
     },
     reporters: ['progress'],
+    client: {
+      mocha: {
+        reporter: 'html'
+      }
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: false,
-    browsers: ['PhantomJS'],
+    autoWatch: true,
+    browsers: ['Chrome'],
     captureTimeout: 60000,
-    singleRun: true
+    singleRun: false
   });
 };

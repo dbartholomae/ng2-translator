@@ -28,6 +28,7 @@
     "coveralls": "*",
     "ghooks": "*",
     "istanbul": "*",
+    "istanbul-instrumenter-loader": "*",
     "mocha": "^2.4.5",
     "nodemon": "*",
     "npm-build-tools": "*",
@@ -56,11 +57,11 @@
     "test:unit": "karma start karma-spec.conf.js",
     "test:integration": "karma start karma-int.conf.js",
     "test:security": "nsp check",
-    "test:watch": "npm run test:unit -- --auto-watch --no-single-run --browsers Chrome",
+    "test:watch": "karma start karma-watch.conf.js",
     "document": "node_modules/.bin/typedoc.cmd src/translator.service.ts",
     "dev": "npm run test:watch",
     "commit-documentation": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\" || echo \"No changes committed\"",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "coveralls": "cat coverage/lcov/coverage.txt | coveralls"
+    "coveralls": "cat coverage/lcov/lcov.info | coveralls"
   }
 }
