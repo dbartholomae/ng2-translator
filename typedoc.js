@@ -1,7 +1,7 @@
 module.exports = {
   out: "doc/",
   hideGenerator: true,
-  name: "SIT Frontend",
-  exclude: "**/*.+(e2e|spec).ts",
+  name: require('./package.json').name,
+  exclude: "**/*.+(e2e|int|spec).ts",
   mode: "file"
 };
