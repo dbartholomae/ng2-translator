@@ -1,7 +1,13 @@
-import * as browser from '@angular/platform-server/testing';
+let browser = require('@angular/platform-browser-dynamic/testing');
+let TestBed = require('@angular/core/testing').TestBed;
+
+TestBed.initTestEnvironment(
+  browser.BrowserDynamicTestingModule,
+  browser.platformBrowserDynamicTesting()
+);
 
 import { Component } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { async } from '@angular/core/testing';
 import { TranslatorComponent } from './translator.component';
 import { Translator } from './translator.service';
 
@@ -22,9 +28,7 @@ describe("A translator component", () => {
     translatorMock.subscribe.withArgs("myId").yields("translation");
 
     TestBed.configureTestingModule({
-      declarations: [
-        TestComponent
-      ],
+      declarations: [ TestComponent ],
       providers: [
         { provide: Translator, useValue: translatorMock }
       ]
@@ -35,6 +39,6 @@ describe("A translator component", () => {
     const fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
     const element = fixture.nativeElement;
-    expect(element.children[0].children[0].data).to.equal('translation');
+    expect(element.firstChild.textContent).to.equal('translation');
   }));
 });
