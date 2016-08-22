@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@angular/core": "*",
-    "rxjs": "*",
+    "rxjs": "^5.0.0-beta.6",
     "reflect-metadata": "^0.1.3",
     "core-js": "^2.4.0",
     "zone.js": "^0.6.12"
@@ -42,7 +42,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run lint && npm run test && npm run document",
+      "pre-commit": "npm run lint && npm run test:unit && npm run document",
       "commit-msg": "validate-commit-msg",
       "post-commit": "npm run commit-documentation"
     }
