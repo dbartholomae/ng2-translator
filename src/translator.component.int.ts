@@ -1,5 +1,3 @@
-/// <reference path="../node_modules/mocha-chai-helper/index.d.ts" />
-
 import * as browser from '@angular/platform-server/testing';
 
 import { Component } from '@angular/core';

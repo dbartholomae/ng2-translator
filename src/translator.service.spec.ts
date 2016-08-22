@@ -1,10 +1,11 @@
-/// <reference path="../node_modules/mocha-chai-helper/index.d.ts" />
-
 import { Translator } from "../src/translator.service";
 describe("A translator service", () => {
   let translator: Translator;
   beforeEach(() => {
     translator = new Translator();
+    Object.defineProperty(window, "navigator", {
+      value: null
+    });
   });
 
   it("sets available languages", () => {
@@ -31,30 +32,22 @@ describe("A translator service", () => {
     });
 
     it("uses the first availableLanguage if the user agent language isn't available", () => {
-      let navigator = {
-        language: "de-de"
-      };
-      global['window'] = {
-        navigator: navigator
-      };
+      Object.defineProperty(window, "navigator", {
+        value: { language: "de-de" }
+      });
       translator = new Translator();
       translator.setAvailableLanguages(["en", "de", "ar"]);
       translator.guessLanguage();
       expect(translator.getLanguage()).to.equal("de");
-      global['window'] = null;
     });
 
     it("uses the user agent language if it is available", () => {
-      let navigator = {
-        language: "en-us"
-      };
-      global['window'] = {
-        navigator: navigator
-      };
+      Object.defineProperty(window, "navigator", {
+        value: { language: "en-us" }
+      });
       translator.setAvailableLanguages(["en", "de", "ar"]);
       translator.guessLanguage();
       expect(translator.getLanguage()).to.equal("en");
-      global['window'] = null;
     });
   });
 

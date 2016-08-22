@@ -1,5 +1,3 @@
-/// <reference path="../node_modules/mocha-chai-helper/index.d.ts" />
-
 import { TranslatorComponent } from "./translator.component";
 import { Translator } from "./translator.service";
 
@@ -16,7 +14,7 @@ describe("A translate component", () => {
 
     translatorComponent.ngOnInit();
 
-    expect(mockTranslator.subscribe).to.have.been.called.once;
+    expect(mockTranslator.subscribe).to.have.been.calledOnce;
     expect(translatorComponent.translation).to.equal("");
   });
 
@@ -26,7 +24,7 @@ describe("A translate component", () => {
 
     translatorComponent.ngOnInit();
 
-    expect(mockTranslator.subscribe).to.have.been.called.once;
+    expect(mockTranslator.subscribe).to.have.been.calledOnce;
     expect(translatorComponent.translation).to.equal("Translation");
   });
 });
