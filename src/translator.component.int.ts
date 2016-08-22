@@ -1,7 +1,7 @@
 import * as browser from '@angular/platform-server/testing';
 
 import { Component } from '@angular/core';
-import { async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { TranslatorComponent } from './translator.component';
 import { Translator } from './translator.service';
 
