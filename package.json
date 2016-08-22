@@ -1,7 +1,9 @@
 {
   "name": "ng2-translator",
   "description": "A simple translation service and directive for angular 2 that manages multiple languages",
-  "version": "1.0.0",
+  "homepage": "https://github.com/dbartholomae/ng2-translator",
+  "bugs": "https://github.com/dbartholomae/ng2-translator/issues",
+  "license": "MIT",
   "dependencies": {
     "@angular/core": "*",
     "rxjs": "5.0.0-beta.6",
@@ -40,6 +42,10 @@
     "typings": "*",
     "validate-commit-msg": "*"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbartholomae/ng2-translator.git"
+  },
   "config": {
     "ghooks": {
       "pre-commit": "npm run lint && npm run test:unit && npm run document",
@@ -62,6 +68,6 @@
     "dev": "npm run test:watch",
     "commit-documentation": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\" || echo \"No changes committed\"",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "coveralls": "cat coverage/lcov/lcov.info | coveralls"
+    "coveralls": "cat coverage/report-lcov/lcov.info | coveralls"
   }
 }
