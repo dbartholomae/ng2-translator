@@ -3,7 +3,6 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
@@ -12,5 +11,12 @@
     "rootDir": "./src",
     "declaration": true
   },
-  "files": ["src/translator.component.ts", "src/translator.service.ts"]
+  "exclude": [
+    "**/*.int.ts",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "src/*.ts",
+    "typings/*"
+  ]
 }
