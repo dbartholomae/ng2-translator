@@ -40,8 +40,8 @@ export class AppComponent {
 
 ## CDN
 
-The module should be available via [npmcdn](https://npmcdn.com/) at
-[https://npmcdn.com/ng2-translator](https://npmcdn.com/ng2-translator)
+The module should be available via [unpkg](https://unpkg.com/) at
+[https://unpkg.com/ng2-translator](https://unpkg.com/ng2-translator)
 
 No guarantees for uptime or anything like that, though.
 
