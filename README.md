@@ -1,4 +1,6 @@
+
 # ng2-translator
+## !!! This package is no longer maintained !!!
 [![NPM version](https://badge.fury.io/js/ng2-translator.svg)](https://npmjs.org/package/ng2-translator)
 [![Build Status](https://travis-ci.org/dbartholomae/ng2-translator.svg?branch=master)](https://travis-ci.org/dbartholomae/ng2-translator)
 [![Coverage Status](https://coveralls.io/repos/dbartholomae/ng2-translator/badge.svg?branch=master&service=github)](https://coveralls.io/github/dbartholomae/ng2-translator?branch=master)
