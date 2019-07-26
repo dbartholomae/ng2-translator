@@ -7,7 +7,7 @@
 [![Dependency Status](https://david-dm.org/dbartholomae/ng2-translator.svg?theme=shields.io)](https://david-dm.org/dbartholomae/ng2-translator)
 [![devDependency Status](https://david-dm.org/dbartholomae/ng2-translator/dev-status.svg)](https://david-dm.org/dbartholomae/ng2-translator#info=devDependencies)
 [![GitHub license](https://img.shields.io/github/license/dbartholomae/ng2-translator.svg)]()
-[![Gitter](https://badges.gitter.im/dbartholomae/ng2-translator.svg)](https://gitter.im/dbartholomae/ng2-translator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/dbartholomae/ng2-translator.svg)](https://gitter.im/dbartholomae/ng2-translator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Greenkeeper badge](https://badges.greenkeeper.io/dbartholomae/ng2-translator.svg)](https://greenkeeper.io/)
 
 **ng2-translator** is a simple translation service and directive that manages multiple languages
 
